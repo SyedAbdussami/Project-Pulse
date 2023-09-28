@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts::header"></head>
+<body>
+
+<nav th:replace="layouts::th_navBar"></nav>
+<div class="container-fluid mt-3">
+    <h2>Main Dashboard</h2>
+    <a href="#" th:text="${versionNumber}"> </a>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <h3 class="card-title">Projects</h3>
+                <table class="table table-bordered table-striped border border-dark">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Project Stage</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="project:${projectList}">
+                        <td th:text="${project.name}"></td>
+                        <td th:text="${project.stage}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <canvas id="myPieChart" height="50" width="50"></canvas>
+            <script>
+                var chartDataRaw="[[${projectStatusCount}]]"
+            </script>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <h3 class="card-title">Employees</h3>
+                <table class="table table-bordered table-striped border border-dark">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Project count</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="employee:${employeeList}">
+                        <td th:text="${employee.firstName}"></td>
+                        <td th:text="${employee.lastName}"></td>
+                        <td th:text="${employee.projectCount}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/myCharts.js}"></script>
+</body>
+</html>

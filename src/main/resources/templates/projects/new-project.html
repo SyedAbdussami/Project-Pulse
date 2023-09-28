@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts::header">
+    <title>Create New Project</title>
+</head>
+<body>
+
+<nav th:replace="layouts::th_navBar"></nav>
+<div class="container mt-4 input-group">
+    <div class="card card-body">
+        <form th:action="@{/projects/save}" th:object="${project}" method="POST">
+
+            <p><input type="text" class="form-control" placeholder="Project Name" th:field="${project.name}"></p>
+
+            <p><select class="form-select" th:field="${project.stage}">
+                <option th:value="NOTSTARTED"> Not Started</option>
+                <option th:value="INPROGRESS"> In Progress</option>
+                <option th:value="COMPLETED"> Completed</option>
+            </select></p>
+
+            <p><textarea class="form-control" type="text" placeholder="Enter Project Description"
+                         th:field="${project.description}"></textarea>
+            </p>
+
+            <p>
+                <select class="form-select form-select-sm" th:field="*{employees}" multiple="multiple">
+                    <option th:each="employee:${allEmployees}" th:value="${employee.employeeId}"
+                            th:text="${employee.firstName}"></option>
+                </select>
+            </p>
+
+            <p>
+                <button class="btn btn-primary" type="submit">Create Project</button>
+            </p>
+
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+</html>

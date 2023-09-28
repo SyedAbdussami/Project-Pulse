@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration Form</title>
+    <!-- link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" /-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="/86AAF7CD-A199-463A-BEEF-AEE7400B3F0D/main.js?attr=8NR_e17cN51rDCUpb4vVQRy4bR5OkLIHK0lQYdHgOSqB6sKnRQjuiZFGbqL9bLuzSM8kjBf38vOlUm6F1RNvmddLYfMO19BbSBdQcNETHIynIphzAEEiAwzyRJ7MepbZmmAx-p0O3SCaMX73TruM8arrpKCBpVmtgl5RKh1Hqn4qubS-wsTho0I5pnjMti39GDWzybXnzHrxipfAelqrp17gCGY-c0wOFSgQ_IqAo9DbfQRRbediYL-BW0ndVifl" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=a2GnzYHTJISCQ32FWs2LbxzL15XlBcqPX9JJ9ou1oybWhqcvfE5cFiJzg0foM2eg1C59UMTBwLKDTKCPOTF7ZRjd3bgt9XFSdN_kMK1pThGL6hhkfO-HUfiJanqyuqvh16KHZSVFfMrX4V_GlaqAwYnNinw3lCNFgMzCLeQha00c8MSey9J9rcncXIS21V1SggYvmBakKHZixLR-j0fObcA2rP35vsZRO661yRRvJpAdTthh0CfNOqgAO4Z3AimA" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9hdHQtYi51ZGVteWNkbi5jb20vMjAxOS0xMS0yMV8yMS0zOC0xMy1iYjFlZWFhNTMxMjViYjNiNTQ4NjZjMjFhODllZWI0OS9vcmlnaW5hbC5odG1sP3NlY3VyZT1OOVFXNnZHSVZxSE93QkNoTVJFTllRJTNkJTNkJTJjMTYxNDYzMjk3NiZmaWxlbmFtZT1yZWdpc3Rlci5odG1s"/><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #ededed;">
+<div style="background-color: #337ab7; height: 50px;"></div>
+<div class="container-fluid" style="margin-top: 30px;">
+
+    <div class="row col-lg-4 col-lg-offset-4" style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
+        <form autocomplete="off" th:action="@{/register/save}" th:object="${userAccount}" method="post" class="form-signin" role="form">
+            <h3 class="form-signin-heading">Registration Form</h3>
+            <div class="form-group">
+                <div class="">
+                    <input type="text" th:field="*{userName}" placeholder="User Name" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <input type="text" th:field="*{email}" placeholder="Email" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <input type="password" th:field="*{password}" placeholder="Password" class="form-control" />
+                </div>
+            </div>
+
+<!--            <input type="hidden" name="_csrf" th:value="${_csrf.token}">-->
+            <div class="form-group">
+                <div class="">
+                    <button type="submit" class="btn btn-primary btn-block">Register User</button>
+                </div>
+            </div>
+            <!-- <span th:utext="${successMessage}"></span> -->
+        </form>
+    </div>
+</div>
+</body>
+</html>
